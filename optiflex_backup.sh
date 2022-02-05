@@ -14,7 +14,7 @@ LOGFILE='/home/pi/Scripts/backuplog'
 ERRORLOG='/home/pi/Scripts/backuperror.log'
 OUTPUTLOG='/home/pi/Scripts/backupout.log'
 msgSuccess="$TIMESTAMP: Successful Optiflex MyDocuments Backup."
+msgError="$TIMESTAMP: There was an error in the backup process!"
 
 
-
-rsync -avr  $THESOURCE $THEDESTINATION 2>$ERRORLOG 1>$OUTPUTLOG && echo $msgSuccess >> $LOGFILE
+rsync -avr  $THESOURCE $THEDESTINATION 2>$ERRORLOG 1>$OUTPUTLOG && echo $msgSuccess >> $LOGFILE || echo $msgError >> $LOGFILE
