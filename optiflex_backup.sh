@@ -16,5 +16,5 @@ OUTPUTLOG='/home/pi/Scripts/backupout.log'      #if the backup is successful - t
 msgSuccess="$TIMESTAMP: Successful Optiflex MyDocuments backup."     
 msgError="$TIMESTAMP: There was an error in the backup process! Read the error log - backuperror.log"
 
-# This is the main rsync command of this script, options are - a for archive - v for vebose and r for recursive
-rsync -avr $THESOURCE $THEDESTINATION 2>$ERRORLOG 1>$OUTPUTLOG && echo $msgSuccess >> $LOGFILE || echo $msgError >> $LOGFILE
+# This is the main rsync command of this script, options are - a for archive and v for vebose 
+rsync -av $THESOURCE $THEDESTINATION 2>$ERRORLOG 1>$OUTPUTLOG && echo $msgSuccess >> $LOGFILE || echo $msgError >> $LOGFILE
