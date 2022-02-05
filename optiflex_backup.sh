@@ -12,8 +12,7 @@ msgError="$TIMESTAMP: There was an error in the backup process! Read the error l
 NOSOURCEERROR="$TIMESTAMP: The Optiflex source cannot be located"  
 
 # The source files are mounted in this location - it depends on Optiflex computer to be running and correctly mounted
-# I have not yet tested any errors if this is not the case
-THESOURCE="/home/pi/optiflexDocs/" || echo $NOSOURCEERROR >> $LOGFILE
+THESOURCE="/home/pi/optiflexDocs/"
 
 # The destination is the Toshiba 2 TB Drive USB Drive automounted by linux with this crazy number
 THEDESTINATION="/media/pi/5E4A83B74A838A8B/OptiflexBackup"
