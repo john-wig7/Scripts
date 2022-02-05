@@ -18,7 +18,7 @@ THESOURCE="/home/pi/optiflexDocs/"
 THEDESTINATION="/media/pi/5E4A83B74A838A8B/OptiflexBackup"
 
 # Files deleted from the source will be backed up here, stored in daily directories - being replaced every year in a cycle
-THEBACKUP="/media/pi/5E4A83B74A838A8B/deletedOptiflexFiles/"$(date +"%Y")
+THEBACKUP="/media/pi/5E4A83B74A838A8B/deletedOptiflexFiles/"$(date +"%Y")"-backups"
 THESUFFIX="."$(date +"%d%m%Y.%H%M%S")
 
 
