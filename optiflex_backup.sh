@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# A script to backup my optiflex My Documents folder to the drive attached to this pi
+# A script to backup My Documents folder on my PC to the usb drive mounted on this pi
 
 # variables for file locations and messages
 TIMESTAMP=`date "+%d/%m/%Y %H:%M:%S"`   #current date and time
@@ -11,7 +11,7 @@ msgSuccess="$TIMESTAMP: Successful Optiflex MyDocuments backup."
 msgError="$TIMESTAMP: There was an error in the backup process! Read the error log - /home/pi/backupLogs/backuperror.log"
 NOSOURCEERROR="$TIMESTAMP: The Optiflex source cannot be located"  
 
-# The source files are mounted in this location - it depends on Optiflex computer to be running and correctly mounted
+# The source files are mounted in this location - it depends on my Optiflex PC to be running and correctly mounted
 THESOURCE="/home/pi/optiflexDocs/"
 
 # The destination is the Toshiba 2 TB Drive USB Drive automounted by linux with this crazy number
