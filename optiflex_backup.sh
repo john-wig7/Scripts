@@ -14,6 +14,7 @@ NOSOURCEERROR="$TIMESTAMP: The Optiflex source cannot be located"
 # The source files are mounted in this location - it depends on my Optiflex PC to be running and correctly mounted
 THESOURCE="/home/pi/optiflexDocs/"
 
+
 # The destination is the Toshiba 2 TB Drive USB Drive automounted by linux with this crazy number
 THEDESTINATION="/media/pi/5E4A83B74A838A8B/OptiflexBackup"
 
