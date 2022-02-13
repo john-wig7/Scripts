@@ -14,11 +14,10 @@ NOSOURCEERROR="$TIMESTAMP: The Optiflex source cannot be located"
 # The source files on the optiflex PC are mounted via fstab in this location
 THESOURCE="/home/pi/optiflexDocs/"
 
-# Check to see if the source is mounted, and only runb rsync of it is
-
+# Check that the source is mounted and only run rsync if it is
 if [[ $(findmnt -M "$THESOURCE") ]]
 then
-    echo "$TIMESTAMP: $THESOURCE is mounted on your filesystem."
+    echo "$TIMESTAMP: $THESOURCE is mounted."
     echo "running rsync backup..."
 
     # The destination is the Toshiba 2 TB Drive USB Drive automounted by linux with this crazy number
