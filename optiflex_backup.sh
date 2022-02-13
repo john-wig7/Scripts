@@ -33,3 +33,6 @@ then
 else
     echo "$TIMESTAMP: $THESOURCE is not mounted on your filesystem!" >> $LOGFILE
 fi
+
+ENDTIMESTAMP=`date "+%d/%m/%Y %H:%M:%S"`   #current date and time
+echo "$ENDTIMESTAMP: Rsync backup finished."
