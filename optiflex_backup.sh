@@ -17,13 +17,13 @@ THESOURCE="/home/pi/optiflexDocs/"
 # Check that the source is mounted and only run rsync if it is
 if [[ $(findmnt -M "$THESOURCE") ]]
 then
-    echo "$TIMESTAMP: $THESOURCE is mounted."
+    echo "$TIMESTAMP: $THESOURCE is correctly mounted."
     echo "running rsync backup..."
 
     # The destination is the Toshiba 2 TB Drive USB Drive automounted by linux with this crazy number
     THEDESTINATION="/media/pi/5E4A83B74A838A8B/OptiflexBackup"
 
-    # Files deleted from the source will be backed up here, stored in daily directories - being replaced every year in a cycle
+    # Files deleted at the source will be deletd from the sync and backed up here, stored in an annual directory with the suffix added
     THEBACKUP="/media/pi/5E4A83B74A838A8B/deletedOptiflexFiles/"$(date +"%Y")"-backups"
     THESUFFIX="."$(date +"%d%m%Y.%H%M%S")
 
