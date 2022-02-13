@@ -11,18 +11,26 @@ msgSuccess="$TIMESTAMP: Successful Optiflex MyDocuments backup."
 msgError="$TIMESTAMP: There was an error in the backup process! Read the error log - /home/pi/backupLogs/backuperror.log"
 NOSOURCEERROR="$TIMESTAMP: The Optiflex source cannot be located"  
 
-# The source files are mounted in this location - it depends on my Optiflex PC to be running and correctly mounted
-
+# The source files on the optiflex PC are mounted via fstab in this location
 THESOURCE="/home/pi/optiflexDocs/"
 
+# Check to see if the source is mounted, and only runb rsync of it is
 
-# The destination is the Toshiba 2 TB Drive USB Drive automounted by linux with this crazy number
-THEDESTINATION="/media/pi/5E4A83B74A838A8B/OptiflexBackup"
+if [[ $(findmnt -M "$THESOURCE") ]]
+then
+    echo "$TIMESTAMP: $THESOURCE is mounted on your filesystem."
+    echo "running rsync backup..."
 
-# Files deleted from the source will be backed up here, stored in daily directories - being replaced every year in a cycle
-THEBACKUP="/media/pi/5E4A83B74A838A8B/deletedOptiflexFiles/"$(date +"%Y")"-backups"
-THESUFFIX="."$(date +"%d%m%Y.%H%M%S")
+    # The destination is the Toshiba 2 TB Drive USB Drive automounted by linux with this crazy number
+    THEDESTINATION="/media/pi/5E4A83B74A838A8B/OptiflexBackup"
 
+    # Files deleted from the source will be backed up here, stored in daily directories - being replaced every year in a cycle
+    THEBACKUP="/media/pi/5E4A83B74A838A8B/deletedOptiflexFiles/"$(date +"%Y")"-backups"
+    THESUFFIX="."$(date +"%d%m%Y.%H%M%S")
 
-# This is the main rsync command of this script
-rsync -avbh --delete --backup-dir=$THEBACKUP --suffix=$THESUFFIX $THESOURCE $THEDESTINATION 2>$ERRORLOG 1>$OUTPUTLOG && echo $msgSuccess >> $LOGFILE || echo $msgError >> $LOGFILE
+    # This is the main rsync command of this script
+    rsync -avbh --delete --backup-dir=$THEBACKUP --suffix=$THESUFFIX $THESOURCE $THEDESTINATION 2>$ERRORLOG 1>$OUTPUTLOG && echo $msgSuccess >> $LOGFILE || echo $msgError >> $LOGFILE
+
+else
+    echo "$TIMESTAMP: $THESOURCE is not mounted on your filesystem!" >> $LOGFILE
+fi
