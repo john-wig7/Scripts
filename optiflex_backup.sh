@@ -12,6 +12,7 @@ msgError="$TIMESTAMP: There was an error in the backup process! Read the error l
 NOSOURCEERROR="$TIMESTAMP: The Optiflex source cannot be located"  
 
 # The source files are mounted in this location - it depends on my Optiflex PC to be running and correctly mounted
+
 THESOURCE="/home/pi/optiflexDocs/"
 
 
