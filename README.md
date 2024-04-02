@@ -1,5 +1,4 @@
 # Scripts
 
-These set of Scripts relate to my Raspberry Pi 4.
-They are utility scripts for backing up files on my Windows PC.
-They also contain some test sandpits while I learn the BASH command language
+These set of BASH scripts for Raspberry Pi 4.
+They are utility functions for backing up files to a Windows Server.
